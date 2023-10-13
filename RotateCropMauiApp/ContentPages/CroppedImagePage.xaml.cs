@@ -6,10 +6,9 @@ namespace RotateCropMauiApp.ContentPages
     {
         private CroppedImagePageViewModel BindingData;
 
-        public CroppedImagePage(CroppedImagePageViewModel viewModel)
+        public CroppedImagePage()
         {
             InitializeComponent();
-            BindingContext = viewModel;
         }
 
         private async void Reset_Released(object sender, EventArgs e) => await Navigation.PopAsync();

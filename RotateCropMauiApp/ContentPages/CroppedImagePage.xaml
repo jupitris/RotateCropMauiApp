@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:drawable="clr-namespace:RotateCropMauiApp.Drawables"
+             xmlns:viewmodel="clr-namespace:RotateCropMauiApp.ViewModels"
+             x:Class="RotateCropMauiApp.ContentPages.CroppedImagePage"
+             Title="CroppedImagePage">
+    <ContentPage.BindingContext>
+        <viewmodel:CroppedImagePageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <drawable:CroppedImageViewDrawable x:Key="drawable" />
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+        <drawable:CroppedImageViewDrawable x:Name="MainImage"
+                                           Angle="{Binding Angle}"
+                                           Path="{Binding Path}"
+                                           WidthRequest="800"
+                                           HeightRequest="550">
+            <GraphicsView.Drawable>
+                <drawable:CroppedImageViewDrawable />
+            </GraphicsView.Drawable>
+        </drawable:CroppedImageViewDrawable>
+        <Button x:Name="Reset"
+                Text="Reset"
+                Released="Reset_Released" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -39,7 +39,10 @@ namespace RotateCropMauiApp.ContentPages
                 Angle = BindingData.Angle,
                 Path = BindingData.Path
             };
-            Navigation.PushAsync(new CroppedImagePage(viewModel));
+            Navigation.PushAsync(new CroppedImagePage
+            {
+                BindingContext = viewModel
+            });
         }
 
         private void MainImage_StartInteraction(object sender, TouchEventArgs e)
